@@ -1,0 +1,14 @@
+.wp-block-crazypaws-product-showcase {
+    .crazypaws-product-showcase {
+        border: 2px dashed #cbd5e0;
+        padding: 20px;
+
+        .showcase-title,
+        .showcase-description {
+            &:focus {
+                outline: 2px solid #3b82f6;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.wp-block-crazypaws-cta-section {
+    .crazypaws-cta-section {
+        border: 2px dashed #cbd5e0;
+        padding: 20px;
+
+        .cta-title,
+        .cta-description {
+            &:focus {
+                outline: 2px solid #3b82f6;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.wp-block-crazypaws-service-features {
+    .crazypaws-service-features {
+        border: 2px dashed #cbd5e0;
+        padding: 20px;
+
+        .features-title {
+            &:focus {
+                outline: 2px solid #3b82f6;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

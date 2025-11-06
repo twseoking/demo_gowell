@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "crazypaws/product-showcase",
+  "title": "Product Showcase",
+  "category": "crazypaws",
+  "icon": "products",
+  "description": "Display pet products with images and descriptions",
+  "keywords": ["product", "showcase", "pet", "oem", "odm"],
+  "version": "1.0.0",
+  "textdomain": "crazypaws-blocks",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Our Products"
+    },
+    "description": {
+      "type": "string",
+      "default": "Quality pet supplies manufacturing solutions"
+    },
+    "products": {
+      "type": "array",
+      "default": [
+        {
+          "name": "Pet Elevated Bed",
+          "description": "Durable elevated beds for pet comfort",
+          "image": ""
+        },
+        {
+          "name": "Dog Harness",
+          "description": "Premium quality dog harnesses",
+          "image": ""
+        },
+        {
+          "name": "Pet Toys",
+          "description": "Safe and engaging pet toys",
+          "image": ""
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

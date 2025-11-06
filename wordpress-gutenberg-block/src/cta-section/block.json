@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "crazypaws/cta-section",
+  "title": "CTA Section",
+  "category": "crazypaws",
+  "icon": "megaphone",
+  "description": "Call-to-action section for lead generation",
+  "keywords": ["cta", "call to action", "button", "contact"],
+  "version": "1.0.0",
+  "textdomain": "crazypaws-blocks",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Ready to Start Your Project?"
+    },
+    "description": {
+      "type": "string",
+      "default": "Contact us today for OEM/ODM pet product manufacturing solutions"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Get a Quote"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "#contact"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#1e40af"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#ffffff"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

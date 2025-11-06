@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "crazypaws/service-features",
+  "title": "Service Features",
+  "category": "crazypaws",
+  "icon": "star-filled",
+  "description": "Display OEM/ODM service features with icons",
+  "keywords": ["service", "features", "oem", "odm", "manufacturing"],
+  "version": "1.0.0",
+  "textdomain": "crazypaws-blocks",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Our Services"
+    },
+    "features": {
+      "type": "array",
+      "default": [
+        {
+          "icon": "🏭",
+          "title": "OEM Manufacturing",
+          "description": "Professional OEM manufacturing services for pet products"
+        },
+        {
+          "icon": "🎨",
+          "title": "ODM Solutions",
+          "description": "Custom design and development for your brand"
+        },
+        {
+          "icon": "🏷️",
+          "title": "Private Label",
+          "description": "Complete private label solutions"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}
