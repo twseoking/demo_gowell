@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crazypaws Global - Gutenberg Blocks</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Product Showcase Block */
+        .crazypaws-product-showcase {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .crazypaws-product-showcase .showcase-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .crazypaws-product-showcase .showcase-description {
+            font-size: 1.125rem;
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.5rem 1.5rem 0.5rem;
+            color: #1f2937;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: #6b7280;
+            margin: 0 1.5rem 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Service Features Block */
+        .crazypaws-service-features {
+            padding: 60px 20px;
+            background-color: #f9fafb;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .crazypaws-service-features .features-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* CTA Section Block */
+        .crazypaws-cta-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #1e40af;
+            color: #ffffff;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button-wrapper {
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .crazypaws-product-showcase .showcase-title,
+            .crazypaws-service-features .features-title,
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .crazypaws-product-showcase,
+            .crazypaws-service-features,
+            .crazypaws-cta-section {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Product Showcase Block -->
+    <div class="crazypaws-product-showcase">
+        <h2 class="showcase-title">我們的產品</h2>
+        <p class="showcase-description">專業 OEM/ODM 寵物用品製造解決方案</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x250/3b82f6/ffffff?text=Pet+Elevated+Bed" alt="寵物高架床">
+                <h3>寵物高架床</h3>
+                <p>耐用舒適的寵物高架床，提供最佳支撐與通風效果</p>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Dog+Harness" alt="狗狗胸背帶">
+                <h3>狗狗胸背帶</h3>
+                <p>優質材料製作的胸背帶，確保寵物安全舒適</p>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x250/ec4899/ffffff?text=Pet+Toys" alt="寵物玩具">
+                <h3>寵物玩具</h3>
+                <p>安全環保的寵物玩具，讓寵物玩得開心又健康</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Features Block -->
+    <div class="crazypaws-service-features">
+        <h2 class="features-title">我們的專業服務</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏭</div>
+                <h3>OEM 代工製造</h3>
+                <p>提供專業的 OEM 代工製造服務，從原料採購到成品包裝一站式解決方案</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>ODM 客製設計</h3>
+                <p>從產品設計、開發到生產的完整 ODM 解決方案，打造獨特的寵物用品</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏷️</div>
+                <h3>自有品牌服務</h3>
+                <p>協助建立您的專屬寵物用品品牌，提供完整的私有標籤解決方案</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section Block -->
+    <div class="crazypaws-cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">準備開始您的專案了嗎？</h2>
+            <p class="cta-description">立即聯繫我們，獲取專業的 OEM/ODM 寵物用品製造解決方案</p>
+            <div class="cta-button-wrapper">
+                <a href="#contact" class="cta-button">立即詢價</a>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    ============================================================
+    使用說明：
+    ============================================================
+
+    這個檔案包含三個 Gutenberg 區塊的 HTML 結構和樣式：
+
+    1. 產品展示區塊 (.crazypaws-product-showcase)
+    2. 服務特色區塊 (.crazypaws-service-features)
+    3. CTA 行動呼籲區塊 (.crazypaws-cta-section)
+
+    你可以：
+    - 直接在瀏覽器中打開此檔案查看效果
+    - 複製任何區塊的 HTML 代碼到 Gutenberg 的「自訂 HTML」區塊中
+    - 修改文字內容、圖片網址來客製化你的內容
+    - 在 <style> 標籤中修改顏色、字體等樣式
+
+    如何在 WordPress Gutenberg 中使用：
+    1. 在 Gutenberg 編輯器中新增「自訂 HTML」區塊
+    2. 複製上面任何一個區塊的 HTML 代碼
+    3. 貼上到「自訂 HTML」區塊中
+    4. 將 <style> 標籤中對應的 CSS 複製到「外觀」→「自訂」→「額外的 CSS」
+
+    ============================================================
+    -->
+
+</body>
+</html>
