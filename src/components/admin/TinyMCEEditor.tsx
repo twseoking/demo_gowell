@@ -31,9 +31,12 @@ export default function TinyMCEEditor({
 }: TinyMCEEditorProps) {
   const [editorReady, setEditorReady] = useState(false)
 
+  // Use environment variable for API key, fallback to "no-api-key" for self-hosted mode
+  const apiKey = process.env.NEXT_PUBLIC_TINYMCE_API_KEY || 'no-api-key'
+
   return (
     <Editor
-      apiKey="no-api-key"
+      apiKey={apiKey}
       value={value}
       onEditorChange={onEditorChange}
       onInit={() => setEditorReady(true)}
