@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { Editor } from '@tinymce/tinymce-react'
 import type { BlogPost } from '@/lib/data'
 
 interface BlogFormProps {
@@ -11,6 +12,7 @@ interface BlogFormProps {
 
 export default function BlogForm({ post, isEdit = false }: BlogFormProps) {
   const router = useRouter()
+  const editorRef = useRef<any>(null)
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     title: post?.title || '',
@@ -167,15 +169,28 @@ export default function BlogForm({ post, isEdit = false }: BlogFormProps) {
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Content *
         </label>
-        <textarea
-          required
+        <Editor
+          apiKey="no-api-key"
+          onInit={(evt, editor) => editorRef.current = editor}
           value={formData.content}
-          onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-          rows={20}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent font-mono text-sm"
-          placeholder="Write your blog post content here (supports Markdown)..."
+          onEditorChange={(content) => setFormData({ ...formData, content })}
+          init={{
+            height: 500,
+            menubar: true,
+            plugins: [
+              'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+              'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+              'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+            ],
+            toolbar: 'undo redo | blocks | ' +
+              'bold italic forecolor | alignleft aligncenter ' +
+              'alignright alignjustify | bullist numlist outdent indent | ' +
+              'removeformat | link image | code | help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+            branding: false,
+          }}
         />
-        <p className="mt-1 text-sm text-gray-500">You can use Markdown formatting</p>
+        <p className="mt-1 text-sm text-gray-500">Use the rich text editor to format your content</p>
       </div>
 
       <div className="flex items-center justify-end space-x-4 pt-6 border-t">
