@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import ProductCategories from '@/components/ProductCategories'
@@ -9,6 +10,9 @@ import CTA from '@/components/CTA'
 export default function Home() {
   return (
     <main className="min-h-screen">
+      {/* Navigation Header */}
+      <Header />
+
       {/* Hero Section - Main H1 with Core Keywords */}
       <Hero />
 

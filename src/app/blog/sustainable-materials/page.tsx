@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Header from '@/components/Header'
 
 export const metadata: Metadata = {
   title: 'Sustainable Materials in Pet Product Manufacturing - Eco-Friendly Pet Supplies OEM',
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
 export default function SustainableMaterialsArticle() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Navigation Header */}
+      <Header />
+
       {/* Article Header */}
       <article className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Harnesses & Leashes",
+    "category": "Pet Accessories",
+    "description": "Custom dog harnesses, leashes, and collars in various materials - mesh, textile, and sport designs.",
+    "keywords": "Custom Dog Harness Manufacturer, OEM Dog Leash and Collar",
+    "icon": "🦮",
+    "moq": "300-1000 units",
+    "materials": "Nylon, Polyester, Mesh, Metal hardware",
+    "features": [
+      "Mesh Harnesses - Lightweight and breathable",
+      "Sport Harnesses - Heavy-duty for active dogs",
+      "Fashion Harnesses - Stylish designer patterns",
+      "Training Harnesses - No-pull design",
+      "Dog Leashes - Multiple lengths available",
+      "Dog Collars - Adjustable with custom printing"
+    ],
+    "slug": "harnesses",
+    "createdAt": "2025-11-06T00:00:00.000Z",
+    "updatedAt": "2025-11-06T00:00:00.000Z"
+  }
+]

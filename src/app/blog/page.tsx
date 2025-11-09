@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Header from '@/components/Header'
 
 export const metadata: Metadata = {
   title: 'Pet Product Manufacturing Insights & Industry News | Crazypaws Blog',
@@ -49,6 +50,9 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Navigation Header */}
+      <Header />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
