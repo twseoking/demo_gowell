@@ -32,3 +32,6 @@ yarn-error.log*
 # Typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# TinyMCE (copied from node_modules via postinstall)
+/public/tinymce

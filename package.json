@@ -7,13 +7,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "mkdir -p public/tinymce && cp -r node_modules/tinymce/* public/tinymce/"
   },
   "dependencies": {
     "@tinymce/tinymce-react": "^6.3.0",
     "next": "14.0.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tinymce": "^8.2.1"
   },
   "devDependencies": {
     "@types/node": "20.10.5",

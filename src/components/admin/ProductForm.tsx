@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Editor } from '@tinymce/tinymce-react'
+import TinyMCEEditor from './TinyMCEEditor'
 import type { Product } from '@/lib/data'
 
 interface ProductFormProps {
@@ -12,7 +12,6 @@ interface ProductFormProps {
 
 export default function ProductForm({ product, isEdit = false }: ProductFormProps) {
   const router = useRouter()
-  const editorRef = useRef<any>(null)
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     title: product?.title || '',
@@ -152,26 +151,11 @@ export default function ProductForm({ product, isEdit = false }: ProductFormProp
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Description *
         </label>
-        <Editor
-          apiKey="no-api-key"
-          onInit={(evt, editor) => editorRef.current = editor}
+        <TinyMCEEditor
           value={formData.description}
           onEditorChange={(description) => setFormData({ ...formData, description })}
-          init={{
-            height: 400,
-            menubar: true,
-            plugins: [
-              'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-              'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-              'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
-            ],
-            toolbar: 'undo redo | blocks | ' +
-              'bold italic forecolor | alignleft aligncenter ' +
-              'alignright alignjustify | bullist numlist outdent indent | ' +
-              'removeformat | link image | code | help',
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-            branding: false,
-          }}
+          height={400}
+          placeholder="Write your product description here..."
         />
         <p className="mt-1 text-sm text-gray-500">Use the rich text editor to format your product description</p>
       </div>
