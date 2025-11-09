@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function ProductCategories() {
   const categories = [
     {
@@ -7,6 +9,7 @@ export default function ProductCategories() {
         'High-quality pet furniture including elevated pet beds, cat trees, and pet houses. Custom designs available.',
       icon: '🛋️',
       products: ['Elevated Pet Beds', 'Cat Trees', 'Pet Houses', 'Pet Stairs'],
+      link: null,
     },
     {
       title: 'Harnesses & Leashes',
@@ -15,6 +18,7 @@ export default function ProductCategories() {
         'Custom dog harnesses, leashes, and collars in various materials - mesh, textile, and sport designs.',
       icon: '🦮',
       products: ['Mesh Harnesses', 'Sport Harnesses', 'Fashion Collars', 'Retractable Leashes'],
+      link: '/products/harnesses',
     },
     {
       title: 'Pet Toys',
@@ -23,6 +27,7 @@ export default function ProductCategories() {
         'Engaging pet toys including squeaky toys, interactive puzzles, and durable chew toys for all pet sizes.',
       icon: '🎾',
       products: ['Squeaky Toys', 'Interactive Puzzles', 'Chew Toys', 'Plush Toys'],
+      link: null,
     },
     {
       title: 'Pet Bowls & Feeders',
@@ -31,6 +36,7 @@ export default function ProductCategories() {
         'Innovative pet bowls and feeders including anti-ant designs, elevated feeders, and slow-feed bowls.',
       icon: '🍽️',
       products: ['Anti-Ant Bowls', 'Elevated Feeders', 'Slow-Feed Bowls', 'Travel Bowls'],
+      link: null,
     },
     {
       title: 'Pet Grooming Products',
@@ -39,6 +45,7 @@ export default function ProductCategories() {
         'Complete grooming solutions including brushes, nail clippers, and grooming accessories.',
       icon: '✂️',
       products: ['Grooming Brushes', 'Nail Clippers', 'Pet Shampoo Dispensers', 'Grooming Gloves'],
+      link: null,
     },
     {
       title: 'Pet Apparel',
@@ -47,6 +54,7 @@ export default function ProductCategories() {
         'Fashionable and functional pet clothing including jackets, raincoats, and seasonal wear.',
       icon: '👕',
       products: ['Pet Jackets', 'Raincoats', 'Sweaters', 'Bandanas'],
+      link: null,
     },
     {
       title: 'Pet Care Accessories',
@@ -55,6 +63,7 @@ export default function ProductCategories() {
         'Essential pet care items including waste bag dispensers, training pads, and travel accessories.',
       icon: '🎒',
       products: ['Waste Bag Dispensers', 'Training Pads', 'Pet Carriers', 'Travel Kits'],
+      link: null,
     },
     {
       title: 'Pet Home Essentials',
@@ -63,6 +72,7 @@ export default function ProductCategories() {
         'Comfortable pet home essentials including mats, blankets, and pet gates.',
       icon: '🏠',
       products: ['Pet Mats', 'Blankets', 'Pet Gates', 'Door Covers'],
+      link: null,
     },
     {
       title: 'Outdoor Pet Products',
@@ -71,6 +81,7 @@ export default function ProductCategories() {
         'Durable outdoor pet products including tie-outs, water bottles, and portable accessories.',
       icon: '🌳',
       products: ['Tie-Out Stakes', 'Travel Water Bottles', 'Portable Bowls', 'Outdoor Toys'],
+      link: null,
     },
   ]
 
@@ -124,25 +135,47 @@ export default function ProductCategories() {
               </div>
 
               <div className="mt-4 pt-4 border-t border-gray-200">
-                <a
-                  href="#contact"
-                  className="text-blue-600 hover:text-blue-800 font-semibold text-sm flex items-center"
-                >
-                  Request Catalog
-                  <svg
-                    className="w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {category.link ? (
+                  <Link
+                    href={category.link}
+                    className="text-blue-600 hover:text-blue-800 font-semibold text-sm flex items-center"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </a>
+                    View Products
+                    <svg
+                      className="w-4 h-4 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
+                ) : (
+                  <a
+                    href="#contact"
+                    className="text-blue-600 hover:text-blue-800 font-semibold text-sm flex items-center"
+                  >
+                    Request Catalog
+                    <svg
+                      className="w-4 h-4 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </a>
+                )}
               </div>
             </div>
           ))}

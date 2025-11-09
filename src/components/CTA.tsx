@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function CTA() {
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white">
@@ -164,6 +166,48 @@ export default function CTA() {
                 </svg>
                 ISO Standards
               </div>
+            </div>
+          </div>
+
+          {/* Blog Links */}
+          <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-8">
+            <h3 className="text-xl font-bold mb-4 text-center">📚 Learn More About Pet Product Manufacturing</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Link
+                href="/blog/sustainable-materials"
+                className="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all"
+              >
+                <div className="text-2xl mb-2">🌱</div>
+                <h4 className="font-semibold mb-1">Sustainable Materials</h4>
+                <p className="text-sm text-blue-200">Eco-friendly pet product options</p>
+              </Link>
+              <Link
+                href="/blog/certifications-guide"
+                className="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all"
+              >
+                <div className="text-2xl mb-2">🔒</div>
+                <h4 className="font-semibold mb-1">Certifications Guide</h4>
+                <p className="text-sm text-blue-200">CA65, RoHS, REACH explained</p>
+              </Link>
+              <Link
+                href="/blog/working-with-startups"
+                className="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all"
+              >
+                <div className="text-2xl mb-2">💡</div>
+                <h4 className="font-semibold mb-1">Startup Guide</h4>
+                <p className="text-sm text-blue-200">Launch your pet product brand</p>
+              </Link>
+            </div>
+            <div className="text-center mt-6">
+              <Link
+                href="/blog"
+                className="text-blue-200 hover:text-white font-semibold inline-flex items-center"
+              >
+                View All Articles
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
           </div>
 
