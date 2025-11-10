@@ -2,7 +2,16 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import TinyMCEEditor from './TinyMCEEditor'
+import dynamic from 'next/dynamic'
+
+const CraftEditor = dynamic(() => import('@/components/editor/CraftEditor'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full border border-gray-300 rounded-lg p-4 bg-gray-50">
+      <p className="text-gray-500">Loading editor...</p>
+    </div>
+  )
+})
 import type { BlogPost } from '@/lib/data'
 
 interface BlogFormProps {
@@ -168,13 +177,12 @@ export default function BlogForm({ post, isEdit = false }: BlogFormProps) {
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Content *
         </label>
-        <TinyMCEEditor
-          value={formData.content}
-          onEditorChange={(content) => setFormData({ ...formData, content })}
-          height={500}
-          placeholder="Write your blog post content here..."
+        <CraftEditor
+          initialContent={formData.content}
+          onSave={(json) => setFormData({ ...formData, content: json })}
+          height={600}
         />
-        <p className="mt-1 text-sm text-gray-500">Use the rich text editor to format your content</p>
+        <p className="mt-1 text-sm text-gray-500">Drag and drop components to build your blog post</p>
       </div>
 
       <div className="flex items-center justify-end space-x-4 pt-6 border-t">
