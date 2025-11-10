@@ -2,7 +2,16 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import TinyMCEEditor from './TinyMCEEditor'
+import dynamic from 'next/dynamic'
+
+const CraftEditor = dynamic(() => import('@/components/editor/CraftEditor'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full border border-gray-300 rounded-lg p-4 bg-gray-50">
+      <p className="text-gray-500">Loading editor...</p>
+    </div>
+  )
+})
 import type { Product } from '@/lib/data'
 
 interface ProductFormProps {
@@ -151,13 +160,12 @@ export default function ProductForm({ product, isEdit = false }: ProductFormProp
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Description *
         </label>
-        <TinyMCEEditor
-          value={formData.description}
-          onEditorChange={(description) => setFormData({ ...formData, description })}
-          height={400}
-          placeholder="Write your product description here..."
+        <CraftEditor
+          initialContent={formData.description}
+          onSave={(json) => setFormData({ ...formData, description: json })}
+          height={500}
         />
-        <p className="mt-1 text-sm text-gray-500">Use the rich text editor to format your product description</p>
+        <p className="mt-1 text-sm text-gray-500">Drag and drop components to build your product description</p>
       </div>
 
       <div>

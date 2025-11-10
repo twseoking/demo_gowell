@@ -7,15 +7,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "mkdir -p public/tinymce && cp -r node_modules/tinymce/* public/tinymce/"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@tinymce/tinymce-react": "^6.3.0",
+    "@craftjs/core": "^0.2.12",
+    "@craftjs/utils": "^0.2.5",
     "next": "14.0.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tinymce": "^8.2.1"
+    "react-contenteditable": "^3.3.7",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/node": "20.10.5",
